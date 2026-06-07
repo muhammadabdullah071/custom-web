@@ -1,30 +1,27 @@
 <?php
-$mysqlHost = 'localhost';
-$mysqlDb = 'NUML_Library';
-$mysqlUser = 'root';
-$mysqlPass = '';
+$sqliteFile = __DIR__ . '/../database.sqlite';
 
 try {
-    $pdo = new PDO("mysql:host=$mysqlHost;dbname=$mysqlDb;charset=utf8", $mysqlUser, $mysqlPass);
+    $pdo = new PDO('sqlite:' . $sqliteFile);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 
     $pdo->exec(
         'CREATE TABLE IF NOT EXISTS Books_borrowed (
-            student_id INT AUTO_INCREMENT PRIMARY KEY,
-            student_name VARCHAR(100) NOT NULL,
-            father_name VARCHAR(100) NOT NULL,
-            cnic VARCHAR(15) NOT NULL UNIQUE,
-            email VARCHAR(100) NOT NULL UNIQUE,
-            password VARCHAR(255) NOT NULL,
+            student_id INTEGER PRIMARY KEY AUTOINCREMENT,
+            student_name TEXT NOT NULL,
+            father_name TEXT NOT NULL,
+            cnic TEXT NOT NULL UNIQUE,
+            email TEXT NOT NULL UNIQUE,
+            password TEXT NOT NULL,
             address TEXT NOT NULL,
-            age INT NOT NULL,
-            bs_program VARCHAR(100) NOT NULL,
-            book_title VARCHAR(200) NOT NULL,
-            isbn VARCHAR(20) NOT NULL,
-            borrow_date DATE NOT NULL,
-            return_date DATE DEFAULT NULL,
-            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            age INTEGER NOT NULL,
+            bs_program TEXT NOT NULL,
+            book_title TEXT NOT NULL,
+            isbn TEXT NOT NULL,
+            borrow_date TEXT NOT NULL,
+            return_date TEXT DEFAULT NULL,
+            created_at TEXT DEFAULT CURRENT_TIMESTAMP
         )'
     );
 } catch (PDOException $e) {

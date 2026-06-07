@@ -1,0 +1,29 @@
+CREATE DATABASE IF NOT EXISTS NUML_Library;
+USE NUML_Library;
+
+-- Table for Question 2: NUML Library
+CREATE TABLE IF NOT EXISTS Books_borrowed (
+    student_id INT AUTO_INCREMENT PRIMARY KEY,
+    student_name VARCHAR(100) NOT NULL,
+    father_name VARCHAR(100) NOT NULL,
+    cnic VARCHAR(15) NOT NULL UNIQUE,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    address TEXT NOT NULL,
+    age INT NOT NULL,
+    bs_program VARCHAR(100) NOT NULL,
+    book_title VARCHAR(200) NOT NULL,
+    isbn VARCHAR(20) NOT NULL,
+    borrow_date DATE NOT NULL,
+    return_date DATE DEFAULT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Table for Question 4: Product MVC
+CREATE TABLE IF NOT EXISTS products (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(200) NOT NULL,
+    description TEXT,
+    price DECIMAL(10, 2) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

@@ -11,6 +11,9 @@ class Controller {
     }
 
     protected function redirect($url) {
+        if (!preg_match('#^https?://#i', $url) && strpos($url, '/') !== 0) {
+            $url = '/' . ltrim($url, '/');
+        }
         header("Location: $url");
         exit;
     }

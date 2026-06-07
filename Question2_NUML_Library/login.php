@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'] ?? '';
 
     if ($user->login($email, $password)) {
-        header('Location: Students_books_allocations_list.php');
+        header('Location: Display_allocated_books.php');
         exit;
     } else {
         $error = 'Invalid email or password.';

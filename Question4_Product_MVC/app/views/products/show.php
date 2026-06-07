@@ -37,7 +37,7 @@
                                 <td><?= $product['created_at'] ?></td>
                             </tr>
                         </table>
-                        <a href="index.php?action=index" class="btn btn-secondary w-100">Back to List</a>
+                        <a href="/index.php" class="btn btn-secondary w-100">Back to List</a>
                     </div>
                 </div>
             </div>

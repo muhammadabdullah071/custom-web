@@ -7,20 +7,16 @@ class Database {
 
     private function __construct() {
         try {
-            $this->pdo = new PDO(
-                "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=utf8",
-                DB_USER,
-                DB_PASS
-            );
+            $this->pdo = new PDO('sqlite:' . DB_FILE);
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $this->pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
             $this->pdo->exec(
                 'CREATE TABLE IF NOT EXISTS products (
-                    id INT AUTO_INCREMENT PRIMARY KEY,
-                    name VARCHAR(200) NOT NULL,
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    name TEXT NOT NULL,
                     description TEXT,
-                    price DECIMAL(10, 2) NOT NULL,
-                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                    price REAL NOT NULL,
+                    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
                 )'
             );
         } catch (PDOException $e) {

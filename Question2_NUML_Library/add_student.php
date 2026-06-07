@@ -19,12 +19,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         ':borrow_date'  => $_POST['borrow_date'],
         ':return_date'  => $_POST['return_date'] ?: null,
     ];
-    if ($user->register($data)) {
-        header('Location: login.php');
-        exit;
-    } else {
-        echo "<div class='alert alert-danger'>Registration failed. Email or CNIC may already exist.</div>";
+    try {
+        if ($user->register($data)) {
+            header('Location: login.php');
+            exit;
+        }
+    } catch (PDOException $e) {
+        $error = 'Registration failed. Email or CNIC may already exist.';
     }
+    echo "<div class='alert alert-danger'>" . ($error ?? 'Registration failed. Please try again.') . "</div>";
+    echo "<a href='Students_books.html' class='btn btn-primary'>Go Back</a>";
 } else {
     header('Location: Students_books.html');
     exit;

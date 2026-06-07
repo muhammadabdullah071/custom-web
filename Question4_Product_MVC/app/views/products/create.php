@@ -15,7 +15,7 @@
                         <h3>Create New Product</h3>
                     </div>
                     <div class="card-body">
-                        <form action="index.php?action=store" method="POST">
+                        <form action="/index.php/store" method="POST">
                             <div class="mb-3">
                                 <label for="name" class="form-label">Product Name</label>
                                 <input type="text" class="form-control" id="name" name="name" required>
@@ -29,7 +29,7 @@
                                 <input type="number" step="0.01" class="form-control" id="price" name="price" required>
                             </div>
                             <button type="submit" class="btn btn-primary w-100">Store Product</button>
-                            <a href="index.php?action=index" class="btn btn-secondary w-100 mt-2">Back to List</a>
+                            <a href="/index.php" class="btn btn-secondary w-100 mt-2">Back to List</a>
                         </form>
                     </div>
                 </div>
