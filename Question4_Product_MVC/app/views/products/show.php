@@ -18,7 +18,7 @@
                         <table class="table table-bordered">
                             <tr>
                                 <th>ID</th>
-                                <td><?= $product['id'] ?></td>
+                                 <td><?= htmlspecialchars($product['id']) ?></td>
                             </tr>
                             <tr>
                                 <th>Name</th>
@@ -34,10 +34,10 @@
                             </tr>
                             <tr>
                                 <th>Created At</th>
-                                <td><?= $product['created_at'] ?></td>
+                                 <td><?= htmlspecialchars($product['created_at']) ?></td>
                             </tr>
                         </table>
-                        <a href="/index.php" class="btn btn-secondary w-100">Back to List</a>
+                        <a href="index.php" class="btn btn-secondary w-100">Back to List</a>
                     </div>
                 </div>
             </div>

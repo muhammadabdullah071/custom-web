@@ -67,7 +67,10 @@ $students = $user->getAllStudents();
                                         <td><?= $s['return_date'] ?? 'Not returned' ?></td>
                                         <td>
                                             <a href="edit_student.php?id=<?= $s['student_id'] ?>" class="btn btn-warning btn-sm">Update</a>
-                                            <a href="delete_student.php?id=<?= $s['student_id'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</a>
+                                            <form action="delete_student.php" method="POST" style="display:inline;" onsubmit="return confirm('Are you sure?')">
+                                                <input type="hidden" name="id" value="<?= $s['student_id'] ?>">
+                                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                            </form>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>

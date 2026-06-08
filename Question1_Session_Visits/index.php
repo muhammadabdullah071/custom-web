@@ -67,9 +67,6 @@ $currentPage = 'home';
                             <a href="contact.php" class="btn btn-success px-4">Go to Contact</a>
                             <a href="services.php" class="btn btn-warning px-4">Go to Services</a>
                         </div>
-                        <div class="mt-4">
-                            <a href="index.php" class="btn btn-outline-secondary btn-sm">&larr; Back to Home</a>
-                        </div>
                     </div>
                 </div>
             </div>

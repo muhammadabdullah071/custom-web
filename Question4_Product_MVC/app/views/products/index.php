@@ -10,7 +10,7 @@
     <div class="container mt-5">
         <div class="d-flex justify-content-between align-items-center mb-3">
             <h2>Product List</h2>
-            <a href="/index.php/create" class="btn btn-primary">+ Create Product</a>
+            <a href="index.php/create" class="btn btn-primary">+ Create Product</a>
         </div>
         <div class="card shadow">
             <div class="card-body">
@@ -30,12 +30,12 @@
                         <?php else: ?>
                             <?php foreach ($products as $p): ?>
                                 <tr>
-                                    <td><?= $p['id'] ?></td>
+                                     <td><?= htmlspecialchars($p['id']) ?></td>
                                     <td><?= htmlspecialchars($p['name']) ?></td>
                                     <td><?= htmlspecialchars($p['description']) ?></td>
                                     <td>$<?= number_format($p['price'], 2) ?></td>
                                     <td>
-                                        <a href="/index.php/show/<?= $p['id'] ?>" class="btn btn-info btn-sm">View</a>
+                                         <a href="index.php/show/<?= $p['id'] ?>" class="btn btn-info btn-sm">View</a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

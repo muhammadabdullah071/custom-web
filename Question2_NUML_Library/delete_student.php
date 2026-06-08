@@ -9,9 +9,11 @@ if (!$user->isLoggedIn()) {
     exit;
 }
 
-$id = $_GET['id'] ?? null;
-if ($id) {
-    $user->deleteStudent($id);
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $id = $_POST['id'] ?? null;
+    if ($id) {
+        $user->deleteStudent($id);
+    }
 }
 header('Location: Display_allocated_books.php');
 exit;

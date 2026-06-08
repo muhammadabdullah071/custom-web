@@ -16,8 +16,8 @@ if (!preg_match('/^#[0-9A-Fa-f]{6}$/', $fontColor)) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            font-size: <?= $fontSize ?>px !important;
-            color: <?= $fontColor ?> !important;
+            font-size: <?= htmlspecialchars($fontSize) ?>px !important;
+            color: <?= htmlspecialchars($fontColor) ?> !important;
         }
     </style>
 </head>
@@ -29,8 +29,8 @@ if (!preg_match('/^#[0-9A-Fa-f]{6}$/', $fontColor)) {
             </div>
             <div class="card-body">
                 <p>Your font settings have been applied on this page.</p>
-                <p>Current Font Size: <strong><?= $fontSize ?>px</strong></p>
-                <p>Current Font Color: <strong><?= $fontColor ?></strong></p>
+                <p>Current Font Size: <strong><?= htmlspecialchars($fontSize) ?>px</strong></p>
+                <p>Current Font Color: <strong><?= htmlspecialchars($fontColor) ?></strong></p>
                 <a href="index.php" class="btn btn-primary">Back to Settings</a>
             </div>
         </div>

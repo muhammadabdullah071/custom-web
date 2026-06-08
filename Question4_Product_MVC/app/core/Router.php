@@ -17,7 +17,7 @@ class Router {
 
         if ($scriptName && strpos($path, $scriptName) === 0) {
             $path = substr($path, strlen($scriptName));
-        } else {
+        } elseif ($scriptName !== '/index.php') {
             $scriptDir = dirname($scriptName);
             if ($scriptDir !== '/' && strpos($path, $scriptDir) === 0) {
                 $path = substr($path, strlen($scriptDir));
@@ -26,6 +26,8 @@ class Router {
 
         $path = '/' . ltrim($path, '/');
         $path = rtrim($path, '/') ?: '/';
+
+        $method = strtoupper($method);
 
         foreach (($this->routes[$method] ?? []) as $route) {
             $pattern = $route['pattern'];

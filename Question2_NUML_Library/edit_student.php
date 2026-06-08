@@ -61,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </div>
                     <div class="card-body">
                         <?php if (isset($error)): ?>
-                            <div class="alert alert-danger"><?= $error ?></div>
+                            <div class="alert alert-danger"><?= htmlspecialchars($error) ?></div>
                         <?php endif; ?>
                         <form method="POST" action="">
                             <div class="row">
@@ -87,7 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <label for="age" class="form-label">Age</label>
-                                    <input type="number" class="form-control" id="age" name="age" value="<?= $student['age'] ?>" required>
+                                     <input type="number" class="form-control" id="age" name="age" value="<?= htmlspecialchars($student['age']) ?>" required>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="bs_program" class="form-label">BS Program</label>
@@ -120,11 +120,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <label for="borrow_date" class="form-label">Borrow Date</label>
-                                    <input type="date" class="form-control" id="borrow_date" name="borrow_date" value="<?= $student['borrow_date'] ?>" required>
+                                     <input type="date" class="form-control" id="borrow_date" name="borrow_date" value="<?= htmlspecialchars($student['borrow_date']) ?>" required>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="return_date" class="form-label">Return Date</label>
-                                    <input type="date" class="form-control" id="return_date" name="return_date" value="<?= $student['return_date'] ?? '' ?>">
+                                    <input type="date" class="form-control" id="return_date" name="return_date" value="<?= htmlspecialchars($student['return_date'] ?? '') ?>">
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-warning w-100">Update Record</button>

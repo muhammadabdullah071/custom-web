@@ -57,21 +57,24 @@ $students = $user->getAllStudents();
                             <?php else: ?>
                                 <?php foreach ($students as $s): ?>
                                     <tr>
-                                        <td><?= $s['student_id'] ?></td>
+                                         <td><?= htmlspecialchars($s['student_id']) ?></td>
                                         <td><?= htmlspecialchars($s['student_name']) ?></td>
                                         <td><?= htmlspecialchars($s['father_name']) ?></td>
                                         <td><?= htmlspecialchars($s['cnic']) ?></td>
                                         <td><?= htmlspecialchars($s['email']) ?></td>
                                         <td><?= htmlspecialchars($s['address']) ?></td>
-                                        <td><?= $s['age'] ?></td>
+                                         <td><?= htmlspecialchars($s['age']) ?></td>
                                         <td><?= htmlspecialchars($s['bs_program']) ?></td>
                                         <td><?= htmlspecialchars($s['book_title']) ?></td>
                                         <td><?= htmlspecialchars($s['isbn']) ?></td>
-                                        <td><?= $s['borrow_date'] ?></td>
-                                        <td><?= $s['return_date'] ?? 'Not returned' ?></td>
+                                         <td><?= htmlspecialchars($s['borrow_date']) ?></td>
+                                         <td><?= htmlspecialchars($s['return_date'] ?? 'Not returned') ?></td>
                                         <td>
-                                            <a href="edit_student.php?id=<?= $s['student_id'] ?>" class="btn btn-warning btn-sm">Update</a>
-                                            <a href="delete_student.php?id=<?= $s['student_id'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this record?')">Delete</a>
+                                         <a href="edit_student.php?id=<?= $s['student_id'] ?>" class="btn btn-warning btn-sm">Update</a>
+                                             <form action="delete_student.php" method="POST" style="display:inline;" onsubmit="return confirm('Are you sure you want to delete this record?')">
+                                                 <input type="hidden" name="id" value="<?= $s['student_id'] ?>">
+                                                 <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                             </form>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>

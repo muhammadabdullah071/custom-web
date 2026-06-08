@@ -36,17 +36,17 @@ $currentColor = $_SESSION['font_color'] ?? '#000000';
                         <h3>Customize Font Settings</h3>
                     </div>
                     <div class="card-body">
-                        <p style="font-size: <?= $currentSize ?>px; color: <?= $currentColor ?>;">
+                        <p style="font-size: <?= htmlspecialchars($currentSize) ?>px; color: <?= htmlspecialchars($currentColor) ?>;">
                             Preview: This is how your text will look.
                         </p>
                         <form method="POST" action="">
                             <div class="mb-3">
                                 <label for="font_size" class="form-label">Font Size (px)</label>
-                                <input type="number" class="form-control" id="font_size" name="font_size" min="10" max="72" value="<?= $currentSize ?>" required>
+                                <input type="number" class="form-control" id="font_size" name="font_size" min="10" max="72" value="<?= htmlspecialchars($currentSize) ?>" required>
                             </div>
                             <div class="mb-3">
                                 <label for="font_color" class="form-label">Font Color</label>
-                                <input type="color" class="form-control form-control-color" id="font_color" name="font_color" value="<?= $currentColor ?>" style="width: 100px; height: 50px;">
+                                <input type="color" class="form-control form-control-color" id="font_color" name="font_color" value="<?= htmlspecialchars($currentColor) ?>" style="width: 100px; height: 50px;">
                             </div>
                             <button type="submit" class="btn btn-primary w-100">Save Settings</button>
                         </form>
